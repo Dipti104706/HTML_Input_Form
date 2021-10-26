@@ -19,6 +19,7 @@
       <div>
         <label for="pwd">password input type:</label>
         <input type="password" id="pwd" name="pwd"></input>
+        <span><error class="pwd-error" for="pwd"></error></span>
       </div>
       <div>
         <label for="email">email input type:</label>
@@ -89,6 +90,16 @@
             errorContact.textContent="Invalid Mobile Number";
         });
 
+        /*UC-4 Password Validation with minimum 8 characters*/
+        const password = document.querySelector("#pwd");
+        const errPwd = document.querySelector(".pwd-error");
+        password.addEventListener('input',function(){
+            let pwdRegex = RegExp("^[a-zA-z]{8,}$");
+            if(pwdRegex.test(password.value))
+            errPwd.textContent="";
+            else
+            errPwd.textContent="Invalid Password";
+        });
       /*Salary range setter*/
       const salary = document.querySelector("#salary");
       const output = document.querySelector(".salary-output");
