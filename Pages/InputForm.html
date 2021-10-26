@@ -90,11 +90,11 @@
             errorContact.textContent="Invalid Mobile Number";
         });
 
-        /*UC-4 Password Validation with minimum 8 characters*/
+        /*UC-5 Password Validation */
         const password = document.querySelector("#pwd");
         const errPwd = document.querySelector(".pwd-error");
         password.addEventListener('input',function(){
-            let pwdRegex = RegExp("^[a-zA-z]{8,}$");
+            let pwdRegex = RegExp("^[a-zA-Z0-9]{1,}[A-Z]*[0-9]*[@&#%$*_-]+[a-zA-Z0-9]*$");
             if(pwdRegex.test(password.value))
             errPwd.textContent="";
             else
